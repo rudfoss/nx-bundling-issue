@@ -6,6 +6,7 @@
     "build": "nx run bundle-test:build:production --statsJson=true",
     "analyze": "webpack-bundle-analyzer dist/packages/bundle-test/stats.json"
   },
+  "sideEffects": false,
   "private": true,
   "devDependencies": {
     "@nrwl/cli": "14.1.9-beta.1",
