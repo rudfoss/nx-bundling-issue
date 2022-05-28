@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run bundle-test:build:production --statsJson=true",
-    "analyze": "webpack-bundle-analyzer dist/packages/bundle-test/stats.json"
+    "build": "nx run bundle-test:build:production --statsJson=true --verbose=true --skip-nx-cache=true",
+    "analyze": "webpack-bundle-analyzer dist/packages/bundle-test/stats.json",
+    "ba": "npm run build && npm run analyze"
   },
   "sideEffects": false,
   "private": true,
