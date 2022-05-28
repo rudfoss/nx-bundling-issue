@@ -1,0 +1,83 @@
+{
+  "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
+  "sourceRoot": "packages/babel-bundle/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/babel-bundle",
+        "index": "packages/babel-bundle/src/index.html",
+        "baseHref": "/",
+        "main": "packages/babel-bundle/src/main.tsx",
+        "polyfills": "packages/babel-bundle/src/polyfills.ts",
+        "tsConfig": "packages/babel-bundle/tsconfig.app.json",
+        "assets": [
+          "packages/babel-bundle/src/favicon.ico",
+          "packages/babel-bundle/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/babel-bundle/src/environments/environment.ts",
+              "with": "packages/babel-bundle/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "babel-bundle:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "babel-bundle:build:development"
+        },
+        "production": {
+          "buildTarget": "babel-bundle:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/babel-bundle/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/babel-bundle"],
+      "options": {
+        "jestConfig": "packages/babel-bundle/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

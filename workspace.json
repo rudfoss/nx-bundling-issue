@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "babel-bundle": "packages/babel-bundle",
+    "babel-bundle-e2e": "packages/babel-bundle-e2e",
     "bundle-test": "packages/bundle-test",
     "bundle-test-e2e": "packages/bundle-test-e2e"
   }
