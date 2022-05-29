@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import NxWelcome from './nx-welcome';
-import { MdLanguage } from "react-icons/md"
+import { MdPerson } from "react-icons/md"
 
 const StyledApp = styled.div`
   // Your style here
@@ -9,7 +9,7 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
-      <MdLanguage size={128}/>
+      <MdPerson size={128} />
       <NxWelcome title="bundle-test" />
     </StyledApp>
   );

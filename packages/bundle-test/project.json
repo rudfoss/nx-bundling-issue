@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "swc",
@@ -21,7 +23,7 @@
         ],
         "styles": [],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "webpack.custom.ts"
       },
       "configurations": {
         "development": {
@@ -65,14 +67,20 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["packages/bundle-test/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "packages/bundle-test/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/bundle-test"],
+      "outputs": [
+        "coverage/packages/bundle-test"
+      ],
       "options": {
         "jestConfig": "packages/bundle-test/jest.config.ts",
         "passWithNoTests": true
