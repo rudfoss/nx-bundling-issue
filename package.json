@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run bundle-test:build:production --statsJson=true --verbose=true --skip-nx-cache=true",
-    "analyze": "webpack-bundle-analyzer dist/packages/bundle-test/stats.json",
-    "ba": "npm run build && npm run analyze"
+    "build:swc": "nx run bundle-test:build:production --statsJson=true --verbose=true --skip-nx-cache=true",
+    "analyze:swc": "webpack-bundle-analyzer dist/packages/bundle-test/stats.json",
+    "build:babel": "nx run babel-bundle:build:production --statsJson=true --verbose=true --skip-nx-cache=true",
+    "analyze:babel": "webpack-bundle-analyzer dist/packages/babel-bundle/stats.json",
+    "build": "npm run build:swc && npm run build:babel"
   },
   "sideEffects": false,
   "private": true,
